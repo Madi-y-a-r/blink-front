@@ -1,0 +1,65 @@
+.sidebar {
+    width: 60px;
+    height: 100vh;
+    background-color: #12131a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    border-radius: 12px;
+    transition: width 0.3s ease;
+  
+    &[data-state="open"] {
+      width: 200px;
+    }
+  }
+  
+  .toggleButton {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .navItem {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .tooltip {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
