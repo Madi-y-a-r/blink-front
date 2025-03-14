@@ -1,4 +1,4 @@
-// store/useChatStore.ts
+
 import { create } from 'zustand';
 
 interface Message {
@@ -8,16 +8,22 @@ interface Message {
   timestamp: number;
 }
 
+export type ToolType = 'none' | 'kanban' | 'gantt' | 'weekly' | 'daily' | 'backlog' | 'myTasks';
+
+
 interface ChatState {
   messages: Message[];
   isChatActive: boolean;
   hasMicAccess: boolean;
   soundLevel: number;
-  
+  activeTool: ToolType;
+  isChatInputActive: boolean;
   addMessage: (text: string, isBot: boolean) => void;
   setChatActive: (active: boolean) => void;
+  setChatInputActive: (active: boolean) => void;
   setMicAccess: (hasAccess: boolean) => void;
   setSoundLevel: (level: number) => void;
+  setActiveTool: (tool: ToolType) => void;
 }
 
 export const useChatStore = create<ChatState>((set) => ({
@@ -25,6 +31,8 @@ export const useChatStore = create<ChatState>((set) => ({
   isChatActive: false,
   hasMicAccess: false,
   soundLevel: 1,
+  activeTool: 'none',
+  isChatInputActive: false,
   
   addMessage: (text, isBot) => set((state) => ({
     messages: [...state.messages, {
@@ -33,12 +41,20 @@ export const useChatStore = create<ChatState>((set) => ({
       isBot,
       timestamp: Date.now()
     }],
-    isChatActive: true // Автоматически активируем чат при появлении сообщений
+    isChatActive: true 
   })),
   
   setChatActive: (active) => set({ isChatActive: active }),
   
+  setChatInputActive: (active) => set({ isChatInputActive: active }),
+  
   setMicAccess: (hasAccess) => set({ hasMicAccess: hasAccess }),
   
-  setSoundLevel: (level) => set({ soundLevel: level })
+  setSoundLevel: (level) => set({ soundLevel: level }),
+
+  setActiveTool: (tool) => set((state) => ({
+    activeTool: tool,
+    isChatActive: false 
+  }))
+  
 }));

@@ -1,65 +1,308 @@
+@use "../../styles/variables" as *;
+
 .sidebar {
-    width: 60px;
-    height: 100vh;
-    background-color: #12131a;
+  width: 80px;
+  height: 100vh;
+  background-color: #13131A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-radius: 12px 0 0 12px;
+  transition: width 0.3s ease;
+  position: relative;
+
+  &[data-state="open"] {
+    width: 320px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.content {
+  flex-grow: 1;
+  width: 100%;
+  padding: 10px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionContent {
+  width: 100%;
+  padding: 16px 8px;
+  color: white;
+  background-color: #1E1E2D;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding: 0 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+  }
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tryPro {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2D304A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  border-radius: 50%;
+  
+  &:hover {
+    background-color: #424561;
+  }
+}
+
+.bell {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: white;
+  width: 15px;
+  height: 15px;
+}
+
+.badge {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottomTools {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 12px;
+}
+
+.toolRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.toolButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  &.active {
+    background-color: $background-color;
+    color: white;
+  }
+}
+
+.tooltip {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Meetings */
+.meetings {
+  .meetingList {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 16px 0;
-    border-radius: 12px;
-    transition: width 0.3s ease;
-  
-    &[data-state="open"] {
-      width: 200px;
+    gap: 8px;
+  }
+
+  .meetingItem {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .meetingTime {
+    font-weight: 600;
+    color: #4299e1;
+  }
+
+  .meetingInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meetingTitle {
+    font-weight: 500;
+  }
+
+  .meetingParticipants {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Summaries */
+.summaries {
+  .summaryList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .summaryItem {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+  }
+
+  .summaryTitle {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .summaryTime {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Create Meeting */
+.createMeeting {
+  .meetingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+      padding: 8px 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: white;
+      font-size: 12px;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #4299e1;
+      }
+    }
+
+    button {
+      padding: 8px;
+      background-color: #4299e1;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #3182ce;
+      }
     }
   }
-  
-  .toggleButton {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    margin-bottom: 10px;
+}
+
+/* Calendar */
+.calendar {
+  .miniCalendar {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .calendarHeader {
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  .calendarDay {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    padding: 0 10px;
-  }
-  
-  .navItem {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-  
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  
+    height: 24px;
+    width: 24px;
+    font-size: 11px;
+    border-radius: 4px;
+
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
     }
   }
-  
-  .tooltip {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
+}

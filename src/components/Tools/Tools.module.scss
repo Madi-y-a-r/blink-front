@@ -1,0 +1,96 @@
+
+.toolContainer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 32, 44, 0.4);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    overflow: auto;
+    animation: fadeIn 0.3s ease;
+    &:active {
+      outline: none;
+      border-color: #4299e1;
+      box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+    }
+  }
+ 
+  
+  .toolHeader {
+    margin-bottom: 24px;
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+    }
+  }
+  
+
+  .kanbanBoard {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    height: calc(100% - 80px);
+    &:active {
+      outline: none;
+      border-color: #4299e1;
+      box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+    }
+  }
+  
+  .kanbanColumn {
+    flex: 1;
+    background-color: rgba(45, 55, 72, 0.5);
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 250px;
+  }
+  
+  .columnHeader {
+    font-weight: bold;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .kanbanCard {
+    background-color: #2D304A;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+  
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
