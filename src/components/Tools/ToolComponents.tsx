@@ -2,19 +2,13 @@
 import React from 'react';
 import KanbanBoard from './KanbanBoard';
 import styles from './Tools.module.scss';
+import { GanttChart } from './Gantt/GanttChart';
 
 
-export const GanttChart = () => {
+export const Gantt = () => {
   return (
     <div className={styles.toolContainer}>
-      <div className={styles.toolHeader}>
-        <h2>Диаграмма Ганта</h2>
-        <p>Планирование проекта и временных рамок</p>
-      </div>
-      <div className={styles.ganttContent}>
-        {/* Здесь будет содержимое диаграммы Ганта */}
-        <p>Диаграмма Ганта в разработке...</p>
-      </div>
+      <GanttChart />
     </div>
   );
 };

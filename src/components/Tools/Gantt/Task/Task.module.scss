@@ -1,0 +1,76 @@
+.task {
+    margin: 10px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.progressContainer {
+  height: 6px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBar {
+  height: 100%;
+  transition: width 0.3s ease;
+  position: relative;
+  background-color: #2f90ff;
+}
+
+.progressText {
+  position: relative;
+  bottom: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.taskInfo {
+  margin-top: 8px;
+  height: 70px;
+  background: #1C1F22;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.taskDetails{
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  justify-content: center;
+}
+.taskTitle {
+  margin: 0;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.taskDates {
+  font-size: 0.85em;
+  color: #666;
+}
+.taskStatus{
+  margin-left: 8px;
+  font-size: 0.85em;
+  background: white;
+  width: 5px;
+  border-radius: 5px;
+  height: 80%;
+
+  &.ontrack { background: #C2E57C; }
+  &.atrisk { background: #E57C7C; }
+  &.delayed { background: #D57CE5; }
+}
+.closeButton{
+  padding: 10px 20px;
+  background-color: red;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: white;
+}

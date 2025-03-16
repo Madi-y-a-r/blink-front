@@ -68,7 +68,7 @@
   gap: 10px;
   align-items: center;
   padding: 10px 20px;
-  background-color: #2D304A;
+  background-color: rgba(100%, 100%, 100%, 5%);
   color: white;
   border: none;
   cursor: pointer;
@@ -76,10 +76,13 @@
   font-weight: 500;
   transition: background-color 0.3s ease;
 
-  border-radius: 50%;
+  border-top-left-radius: 10% 100%;
+  border-bottom-left-radius: 10% 100%;
+  border-top-right-radius: 10% 100%;
+  border-bottom-right-radius: 10% 100%;
   
   &:hover {
-    background-color: #424561;
+    background-color: rgba(100%, 100%, 100%, 10%);
   }
 }
 

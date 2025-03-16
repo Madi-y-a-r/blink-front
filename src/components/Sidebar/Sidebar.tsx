@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Square, ChevronLeft, ChevronRight, Clock, Users, Plus, CalendarDays, RocketIcon, Bell } from "lucide-react";
 import styles from "./Sidebar.module.scss";
 import { AvatarIcon } from "@radix-ui/react-icons";
+import { Icon } from "@iconify/react/dist/iconify.js";
 export default function Sidebar() {
   const [open, setOpen] = useState(true);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -32,7 +33,7 @@ export default function Sidebar() {
         </Collapsible.Trigger>
         {open ? <>
           <button className={styles.tryPro}>
-          <RocketIcon width={20} height={20}/>
+          <Icon icon="carbon:rocket" fontSize={20}/>
           <p>Try Blick Pro</p>
         </button>
         <div className={styles.bell}>
@@ -157,7 +158,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'meetings' ? styles.active : ''}`}
                   onClick={() => toggleSection('meetings')}
                 >
-                  <Clock size={20} />
+                  <Icon icon="mdi:clipboard-clock-outline" fontSize={20}/>
                   {open && <span>Upcoming meetings</span>}
                 </button>
               </Tooltip.Trigger>
@@ -174,7 +175,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'summaries' ? styles.active : ''}`}
                   onClick={() => toggleSection('summaries')}
                 >
-                  <Square size={20} />
+                  <Icon icon="solar:phone-linear" fontSize={20}/>
                   {open && <span>Call Summaries</span>}
                 </button>
               </Tooltip.Trigger>
@@ -193,7 +194,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'createMeeting' ? styles.active : ''}`}
                   onClick={() => toggleSection('createMeeting')}
                 >
-                  <Plus size={20} />
+                  <Icon icon="lucide:plus" fontSize={20}/>
                   {open && <span>Create meeting</span>}
                 </button>
               </Tooltip.Trigger>
@@ -210,7 +211,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'calendar' ? styles.active : ''}`}
                   onClick={() => toggleSection('calendar')}
                 >
-                  <CalendarDays size={20} />
+                  <Icon icon="meteor-icons:calendar" fontSize={20}/>
                   {open && <span>My Calendar</span>}
                 </button>
               </Tooltip.Trigger>
@@ -229,7 +230,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'team' ? styles.active : ''}`}
                   onClick={() => toggleSection('team')}
                 >
-                  <Users size={20} />
+                  <Icon icon="fluent:people-team-16-regular" fontSize={20}/>
                   {open && <span>My Team</span>}
                 </button>
               </Tooltip.Trigger>
@@ -246,7 +247,7 @@ export default function Sidebar() {
                   className={`${styles.toolButton} ${activeSection === 'invite' ? styles.active : ''}`}
                   onClick={() => toggleSection('invite')}
                 >
-                  <Users size={20} />
+                  <Icon icon="fluent:share-16-regular" fontSize={20}/>
                   {open && <span>Invite</span>}
                 </button>
               </Tooltip.Trigger>

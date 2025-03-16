@@ -1,4 +1,4 @@
-
+"use client"
 import * as React from "react";
 import * as Toolbar from "@radix-ui/react-toolbar";
 import styles from "./Toolbar.module.scss";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import Blink from "@/public/blink-icon2 1.png";
 import { Calendar, FilePenLine, Folder, LayoutGrid, Menu, Square } from "lucide-react";
 import { useChatStore, ToolType } from "@/src/store/useChatStore";
-
+import { Icon } from "@iconify/react";
 const ToolbarDemo = () => {
   const { setActiveTool, activeTool } = useChatStore();
 
@@ -27,7 +27,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'kanban' ? 'on' : 'off'}
           onClick={() => handleToolSelect('kanban')}
         >
-          <LayoutGrid />
+          <Icon icon="ph:kanban-light" fontSize={30}/>
         </Toolbar.ToggleItem>
         <Toolbar.ToggleItem
           className={styles.ToggleItem}
@@ -37,7 +37,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'gantt' ? 'on' : 'off'}
           onClick={() => handleToolSelect('gantt')}
         >
-          <Menu />
+          <Icon icon="lucide:chart-no-axes-gantt" fontSize={30}/>
         </Toolbar.ToggleItem>
         <Toolbar.ToggleItem
           className={styles.ToggleItem}
@@ -47,7 +47,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'weekly' ? 'on' : 'off'}
           onClick={() => handleToolSelect('weekly')}
         >
-          <Square />
+          <Icon icon="material-symbols:view-week-outline" fontSize={30}/>
         </Toolbar.ToggleItem>
         <Toolbar.ToggleItem
           className={styles.ToggleItem}
@@ -57,7 +57,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'daily' ? 'on' : 'off'}
           onClick={() => handleToolSelect('daily')}
         >
-          <Calendar />
+          <Icon icon="system-uicons:calendar-day" fontSize={30}/>
         </Toolbar.ToggleItem>
         <Toolbar.ToggleItem
           className={styles.ToggleItem}
@@ -67,7 +67,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'backlog' ? 'on' : 'off'}
           onClick={() => handleToolSelect('backlog')}
         >
-          <Folder />
+          <Icon icon="icon-park-twotone:wallet-two" fontSize={30}/>
         </Toolbar.ToggleItem>
         <Toolbar.ToggleItem
           className={styles.ToggleItem}
@@ -77,7 +77,7 @@ const ToolbarDemo = () => {
           data-state={activeTool === 'myTasks' ? 'on' : 'off'}
           onClick={() => handleToolSelect('myTasks')}
         >
-          <FilePenLine />
+          <Icon icon="mdi:clipboard-edit-outline" fontSize={30}/>
         </Toolbar.ToggleItem>
       </Toolbar.ToggleGroup>
     </Toolbar.Root>
