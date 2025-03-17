@@ -64,20 +64,19 @@ export default function Home() {
 
   const startAudioAnalysis = async () => {
     try {
-      // Очищаем предыдущий анализ, если он был
+
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
       if (mediaStreamRef.current) mediaStreamRef.current.getTracks().forEach(track => track.stop());
       if (audioContextRef.current) audioContextRef.current.close();
 
-      // Запрос доступа к микрофону
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaStreamRef.current = stream;
 
-      // Создание аудио-контекста
+
       const audioCtx = new AudioContext();
       audioContextRef.current = audioCtx;
       
-      // Создание анализатора
+
       const analyser = audioCtx.createAnalyser();
       analyser.fftSize = 512;
       analyserRef.current = analyser;
@@ -115,7 +114,7 @@ export default function Home() {
       if (audioContextRef.current) audioContextRef.current.close();
     };
   }, []);
- 
+  
   const handleMessageSubmit = (text: string) => {
     if (text.trim()) {
       addMessage(text, false);
